@@ -80,7 +80,7 @@ public String getCalcResult() {
 
     // Calculate sleep duration
     int sleepHours = calculateSleepHours(wakeUpHour, wakeUpMinute, bedTimeHour, bedTimeMinute);
-
+//need to figure out issue with calculations
     // Determine sleep recommendation based on age and time person slept
     String result;
     if (age >= 6 && age <= 12 && sleepHours >= 9 && sleepHours <= 12) {
