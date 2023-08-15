@@ -1,0 +1,47 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_buttons"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/default_activity_margin"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:cardBackgroundColor="@android:color/transparent"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bedTimeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="selectBedtime"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:text="@string/select_bedtime" />
+
+        <Button
+            android:id="@+id/wakeUpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="selectWakeUpTime"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:text="@string/select_wakeUp" />
+
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="calculateSleepDuration"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:text="@string/calculate_sleep" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

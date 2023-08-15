@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Sleep Study Term Project</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="banner_text">Sleep Study \nPlease enter all information.</string>
+    <string name="age">Enter Age</string>
+    <string name="hint_age">18</string>
+    <string name="hint_bedTime">22:00 (10:00 pm)</string>
+    <string name="hint_wakeUp">10:00 (am)</string>
+
+    <string name="fab_label">Calculate</string>
+
+    <string name="background_image">Background Image</string>
+
+    <string name="school_age_result">\nYou slept a healthy amount of time for a School Age individual.</string>
+    <string name="teen_result">\nYou slept a healthy amount of time for a Teenager.</string>
+    <string name="adult_result">\nYou slept a healthy amount of time for an Adult.</string>
+    <string name="not_good_result">\nYour sleep duration may not be within the recommended range.</string>
+    <string name="et_hint_age">Enter your age</string>
+    <string name="select_wakeUp">Select Wake Up Time</string>
+    <string name="select_bedtime">Select Bedtime</string>
+    <string name="calculate_sleep">Calculate Sleep</string>
+    <string name="about_text">This project aims to help individuals understand their sleep patterns</string>
+
+
+    <!-- res/values/strings.xml -->
+    <string name="night_mode_key">night_mode_preference</string>
+    <string name="night_mode_title">Night Mode</string>
+    <string name="night_mode_summary">Enable or disable night mode</string>
+    <string name="about_title">About Sleep Study</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+</resources>
