@@ -20,7 +20,9 @@
     <string name="select_wakeUp">Select Wake Up Time</string>
     <string name="select_bedtime">Select Bedtime</string>
     <string name="calculate_sleep">Calculate Sleep</string>
-    <string name="about_text">This project aims to help individuals understand their sleep patterns</string>
+    <string name="about_text">This project aims to help individuals understand their sleep patterns. \nWhen
+    a person is conscious of their actions it will lead to better choices. \nSleep Study, Live Healthier and Happier.
+    \nCreated by Adeena and Rina</string>
 
 
     <!-- res/values/strings.xml -->

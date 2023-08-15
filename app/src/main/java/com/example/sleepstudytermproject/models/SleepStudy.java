@@ -72,34 +72,6 @@ public class SleepStudy {
     }
 
 
-
-/*
-    public int getSleep()
-    {
-        if (age > 0 && bedTime > 0 && wakeUp >0 ) {
-          return bedTime-wakeUp;
-        }
-        else
-            throw new IllegalStateException ("Cannot get sleep before entering all required information.");
-    }
-*/
-/*
-    public String getSleepAmount ()
-    {
-        String sleepGroup;
-        int totalSleep = getSleep();
-
-        if (totalSleep < 5)
-            sleepGroup = "You must get more sleep";
-        else if (totalSleep < 8)
-            sleepGroup = "Healthy amount of sleep!";
-        else if (totalSleep < 12)
-            sleepGroup = "WOW! Fantabulous sleep!";
-        else
-            sleepGroup = "That's enough sleep at this point!";
-
-        return sleepGroup;
-    }*/
 public String getCalcResult() {
     //check for 0s
     if(wakeUpHour <0 || wakeUpMinute < 0 || bedTimeHour <0 || bedTimeMinute <0 ){
@@ -112,13 +84,13 @@ public String getCalcResult() {
     // Determine sleep recommendation based on age and time person slept
     String result;
     if (age >= 6 && age <= 12 && sleepHours >= 9 && sleepHours <= 12) {
-        result = "You slept for:" + sleepHours + " Hours" + "healthy for school age";
+        result = "You slept for:" + sleepHours + " Hours" + "\nWhich is healthy for your age";
     } else if (age >= 13 && age <= 18 && sleepHours >= 8 && sleepHours <= 10) {
-        result = "You slept for:" + sleepHours + " Hours" + "teenager";
+        result = "You slept for:" + sleepHours + " Hours" + "\nThis is healthy for a teenager";
     } else if (age >= 18 && age <= 60 && sleepHours >= 7) {
-        result = "You slept for:" + sleepHours + " Hours" + "adult";
+        result = "You slept for:" + sleepHours + " Hours" + "This is healthy for an adult";
     } else {
-        result = "You slept for:" + sleepHours + " Hours" + "not good";
+        result = "You slept for:" + sleepHours + " Hours" + "\nThis is not in your recommended sleep bracket";
     }
     return result;
 }
