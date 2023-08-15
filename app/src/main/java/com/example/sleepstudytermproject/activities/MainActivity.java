@@ -22,7 +22,6 @@ import com.example.sleepstudytermproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private ActivityMainBinding binding;
     private EditText selectedAge;
     private final String BEDTIME_TITLE = "Bedtime", WAKEUP_TITLE = "Wake Up Time";
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         // Set up the toolbar as the app's action bar
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         selectedAge = findViewById(R.id.ageEditText);
