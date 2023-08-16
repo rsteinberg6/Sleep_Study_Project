@@ -107,7 +107,6 @@ public String getCalcResult() {
         int sleepMinutes = bedtimeMinute - wakeUpMinute;
         if (sleepMinutes < 0) {
             sleepHours--;
-            sleepMinutes += 60;
         }
 
         return sleepHours;

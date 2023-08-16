@@ -93,12 +93,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculateSleepDuration(View view) {
-        sleepStudy.setAge(Integer.parseInt(selectedAge.getText().toString()));
+        if (selectedAge.getText().length() > 0) {
+            sleepStudy.setAge(Integer.parseInt(selectedAge.getText().toString()));
 
-        String recommendation = sleepStudy.getCalcResult();
-
-        // Show Snackbar with result of sleep study
-        Snackbar.make(binding.getRoot(), recommendation, Snackbar.LENGTH_INDEFINITE).show();
+            String recommendation = sleepStudy.getCalcResult();
+            Utils.showInfoDialog(MainActivity.this,"Your Recommendation", recommendation);
+        } else {
+            Snackbar.make(binding.getRoot(), "Please enter in age first.", Snackbar.LENGTH_LONG).show();
+        }
     }
 
 
@@ -109,35 +111,30 @@ public class MainActivity extends AppCompatActivity {
 
     private MaterialTimePicker createMaterialTimePicker(String title) {
         MaterialTimePicker.Builder builder = new MaterialTimePicker.Builder();
-        //adeenas job
-        //builder.setHour(23);
         //use title to  know which timepicker is being set
         int defaultHourValue = 0;
         int defaultMinuteValue = 0;
-        if ((sleepStudy.getBedTimeHour())!= defaultHourValue || sleepStudy.getBedTimeMinute()!= defaultMinuteValue) {
-            builder.setHour(sleepStudy.getBedTimeHour());
-            builder.setMinute(sleepStudy.getBedTimeMinute());
+        if (title.equals(WAKEUP_TITLE)) {
+            if((sleepStudy.getWakeUpHour())!= defaultHourValue || sleepStudy.getWakeUpMinute() != defaultMinuteValue){
+                builder.setHour(sleepStudy.getWakeUpHour());
+                builder.setMinute((sleepStudy.getWakeUpMinute()));
+            }
+            else{
+                builder.setHour(defaultHourValue);
+                builder.setMinute(defaultMinuteValue);
+            }
+
+        } else if (title.equals(BEDTIME_TITLE)) {
+            if ((sleepStudy.getBedTimeHour())!= defaultHourValue || sleepStudy.getBedTimeMinute()!= defaultMinuteValue) {
+                builder.setHour(sleepStudy.getBedTimeHour());
+                builder.setMinute(sleepStudy.getBedTimeMinute());
+            }
+            else {
+                builder.setHour(defaultHourValue);
+                builder.setMinute(defaultMinuteValue);
+            }
         }
 
-        else {
-            builder.setHour(defaultHourValue);
-            builder.setMinute(defaultMinuteValue);
-
-        }
-        if((sleepStudy.getWakeUpHour())!= defaultHourValue || sleepStudy.getWakeUpMinute() != defaultMinuteValue){
-            builder.setHour(sleepStudy.getWakeUpHour());
-            builder.setMinute((sleepStudy.getWakeUpMinute()));
-        }
-        else{
-            builder.setHour(defaultHourValue);
-            builder.setMinute(defaultMinuteValue);
-        }
-        /*vif timealreadyset
-                then builder.setHour use existing time
-                also builder.setMinute
-                uses constants of wakeup and bedtime
-
-                */
         builder.setTimeFormat(TimeFormat.CLOCK_12H);
         builder.setPositiveButtonText("Set");
         builder.setTitleText(title);
@@ -160,4 +157,5 @@ public class MainActivity extends AppCompatActivity {
             sleepStudy.setBedTimeMinute(minute);
         }
     }
+
 }
