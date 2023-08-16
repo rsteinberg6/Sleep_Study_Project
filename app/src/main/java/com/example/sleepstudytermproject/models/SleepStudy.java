@@ -84,13 +84,13 @@ public String getCalcResult() {
     // Determine sleep recommendation based on age and time person slept
     String result;
     if (age >= 6 && age <= 12 && sleepHours >= 9 && sleepHours <= 12) {
-        result = "You slept for:" + sleepHours + " Hours" + "\nWhich is healthy for your age";
+        result = "You slept for: " + sleepHours + " Hours," + "\nWhich is healthy for your age";
     } else if (age >= 13 && age <= 18 && sleepHours >= 8 && sleepHours <= 10) {
-        result = "You slept for:" + sleepHours + " Hours" + "\nThis is healthy for a teenager";
+        result = "You slept for: " + sleepHours + " Hours." + " \nThis is healthy for a teenager";
     } else if (age >= 18 && age <= 60 && sleepHours >= 7) {
-        result = "You slept for:" + sleepHours + " Hours" + "This is healthy for an adult";
+        result = "You slept for: " + sleepHours + " Hours." + "\nThis is healthy for an adult";
     } else {
-        result = "You slept for:" + sleepHours + " Hours" + "\nThis is not in your recommended sleep bracket";
+        result = "You slept for: " + sleepHours + " Hours." + "\nThis is not in your recommended sleep bracket";
     }
     return result;
 }

@@ -21,7 +21,7 @@
     <string name="select_bedtime">Select Bedtime</string>
     <string name="calculate_sleep">Calculate Sleep</string>
     <string name="about_text">This project aims to help individuals understand their sleep patterns. \nWhen
-    a person is conscious of their actions it will lead to better choices. \nSleep Study, Live Healthier and Happier.
+    a person is conscious of their actions it will lead to better choices. (The hours round up to the nearest hour) \nSleep Study, Live Healthier and Happier.
     \nCreated by Adeena and Rina</string>
 
 
