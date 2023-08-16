@@ -97,9 +97,14 @@ public String getCalcResult() {
 
     private int calculateSleepHours(int wakeUpHour, int wakeUpMinute, int bedtimeHour, int bedtimeMinute) {
         // Calculate sleep duration in hours
-        int sleepHours = bedtimeHour - wakeUpHour;
+        int sleepHours = 0;
+        if(wakeUpHour > bedtimeHour) {
+            sleepHours = wakeUpHour - bedtimeHour;
+        }
+        else{
+            sleepHours = (24 - bedtimeHour) + wakeUpHour;
+        }
         int sleepMinutes = bedtimeMinute - wakeUpMinute;
-
         if (sleepMinutes < 0) {
             sleepHours--;
             sleepMinutes += 60;

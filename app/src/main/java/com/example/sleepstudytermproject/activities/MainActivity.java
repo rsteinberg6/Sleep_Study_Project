@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private final String BEDTIME_TITLE = "Bedtime", WAKEUP_TITLE = "Wake Up Time";
 
     private SleepStudy sleepStudy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         selectedAge = findViewById(R.id.ageEditText);
 
-        if(savedInstanceState != null) {
+        if (savedInstanceState != null) {
             String gson = savedInstanceState.getString("key");
             sleepStudy = SleepStudy.getObjectFromJSONString(gson);
         } else {
@@ -101,8 +102,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private void showTimePicker(String title) {
         MaterialTimePicker timePicker = createMaterialTimePicker(title);
         timePicker.show(getSupportFragmentManager(), title);
@@ -111,7 +110,27 @@ public class MainActivity extends AppCompatActivity {
     private MaterialTimePicker createMaterialTimePicker(String title) {
         MaterialTimePicker.Builder builder = new MaterialTimePicker.Builder();
         //builder.setHour(23);
-       //use title to  know which timepicker is being set
+        //use title to  know which timepicker is being set
+        int defaultHourValue = 0;
+        int defaultMinuteValue = 0;
+        if ((sleepStudy.getBedTimeHour())!= defaultHourValue || sleepStudy.getBedTimeMinute()!= defaultMinuteValue) {
+            builder.setHour(sleepStudy.getBedTimeHour());
+            builder.setMinute(sleepStudy.getBedTimeMinute());
+        }
+
+        else {
+            builder.setHour(defaultHourValue);
+            builder.setMinute(defaultMinuteValue);
+
+        }
+        if((sleepStudy.getWakeUpHour())!= defaultHourValue || sleepStudy.getWakeUpMinute() != defaultMinuteValue){
+            builder.setHour(sleepStudy.getWakeUpHour());
+            builder.setMinute((sleepStudy.getWakeUpMinute()));
+        }
+        else{
+            builder.setHour(defaultHourValue);
+            builder.setMinute(defaultMinuteValue);
+        }
         /*vif timealreadyset
                 then builder.setHour use existing time
                 also builder.setMinute
@@ -123,12 +142,12 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitleText(title);
 
         MaterialTimePicker timePicker = builder.build();
-        timePicker.addOnPositiveButtonClickListener(v -> handleTimePickerClick(timePicker, title));
+        timePicker.addOnPositiveButtonClickListener(v -> handleTimePickerClick(timePicker, title,builder));
 
         return timePicker;
     }
 
-    private void handleTimePickerClick(MaterialTimePicker timePicker, String title) {
+    private void handleTimePickerClick(MaterialTimePicker timePicker, String title, MaterialTimePicker.Builder builder) {
         int hour = timePicker.getHour();
         int minute = timePicker.getMinute();
 
